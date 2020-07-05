@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Snippet Creator</title>
+    <meta name="description" content="This is a tool for creating complex user snippets in visual code studio.">
+    <meta name="keywords" content="user snippet, custom snippet, snippet, user, visual, code, studio">
+    <meta name="author" content="Theo Clapperton">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/mystyle.css">
+</head>
+
+<body>
+
+    <div id="main" class="h-100 w-100 valign-wrapper">
+        <div class="row w-100">
+            <div class="col s12 m12 l4 center-align pad-col">
+
+                <div class="w-100p grey left-align valign-wrapper" style="height: 25px; padding-left: 5px;">
+                    <span class="dot red lighten-2"></span>
+                    <span class="dot orange lighten-2"></span>
+                    <span class="dot green"></span>
+                    <small>SNIPPET INPUT</small>
+                </div>
+
+                <textarea v-model="input" name="input" class="w-100p materialize-textarea grey lighten-5 z-depth-5" style="height: 500px;" id="input"></textarea>
+            </div>
+            <div class="col s12 m12 l4 center-align pad-col">
+
+                <div class="input-field col s12">
+                    <input id="snippet_name" v-model="snippet_name" type="text" class="validate">
+                    <label for="snippet_name">Snippet Name</label>
+                    <small class="helper-text left-align">uniquely define snippet</small>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="snippet_scope" v-model="snippet_scope" type="text" class="validate">
+                    <label for="snippet_scope">Snippet Scope</label>
+                    <small class="helper-text left-align">where the snippet is applicable, if empty it applies to all languages</small>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="snippet_prefix" v-model="snippet_prefix" type="text" class="validate">
+                    <label for="snippet_prefix">Snippet Prefix</label>
+                    <small class="helper-text left-align">used to trigger the snippet</small>
+                </div>
+
+                <div class="input-field col s12">
+                    <input id="snippet_desc" v-model="snippet_desc" type="text" class="validate">
+                    <label for="snippet_desc">Snippet Description</label>
+                    <small class="helper-text left-align">description of snippet</small>
+                </div>
+
+                <div class="col s12" style="height: 25px;">
+
+                </div>
+
+                <div class="col s12 m-0 p-0">
+                    <div class="progress">
+                        <div class="determinate blue lighten-1" :style="progressBar"></div>
+                    </div>
+                    <a class="waves-effect waves-light btn w-100p lighten-1 black-text" v-bind:class="b_dis ? 'grey' : 'green lighten-3'" :disabled="b_dis" v-on:click="convert">
+                        <i class="material-icons left">autorenew</i> convert
+                    </a>
+                </div>
+
+            </div>
+            <div class="col s12 m12 l4 pad-col">
+
+                <div class="w-100p grey left-align valign-wrapper" style="height: 25px; padding-left: 5px;">
+                    <span class="dot red lighten-2"></span>
+                    <span class="dot orange lighten-2"></span>
+                    <span class="dot green"></span>
+                    <small>FORMATTED SNIPPET OUTPUT</small>
+                </div>
+
+                <textarea name="output" class="w-100p materialize-textarea grey lighten-5 z-depth-5 black-text" style="height: 500px;" id="output" disabled>{{output}}</textarea>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script src="js/main.js"></script>
+</body>
+
+<footer>
+
+</footer>
+
+</html>
